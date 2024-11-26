@@ -8,6 +8,7 @@
     <canvas id="my3DCanvas" style="background: #00ff00; width: 100%; height: 100%; display: block">Your browser does not support the HTML5 canvas tag</canvas>
     <script>
         var canvas = document.getElementById("my3DCanvas");
+        var xOffset = 0;
 
         function update() {
             let context = canvas.getContext("2d");
@@ -15,7 +16,9 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
-            context.fillRect(10, 10, 100, 100);
+            context.fillRect(xOffset, 10, 100, 100);
+            xOffset = xOffset + 1;
+            if (xOffset > 100) xOffset = 0;
 
             requestAnimationFrame(update);
         }
